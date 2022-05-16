@@ -1,0 +1,34 @@
+---
+title: "Assignment 1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(tidyr)
+```
+
+```{r}
+read.csv("data20130101.csv", header = TRUE)
+
+```
+
+```{r}
+maxValue <- read.csv("data20130101.csv")
+```
+
+```{r}
+library(psych)
+```
+
+```{r}
+summary(maxValue)
+```
+
+```{r}
+max(maxValue)
+```
