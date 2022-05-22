@@ -1,34 +1,89 @@
 ---
 title: "Assignment 1"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+
+## Question 1. "weather2.b" is the csv file
+
+## Question 2. (1 point) Write an R expression that calls read.csv() to open the CSV format ﬁle from the directory on your computer with R.
+
 ```{r}
-library(dplyr)
-library(tidyr)
+getwd()
+
 ```
 
 ```{r}
-read.csv("data20130101.csv", header = TRUE)
+read.csv("weather2.b", sep = ,)   
+```
+
+## Question 3. Write two R expressions that call setwd(), to change R's working directory to be the directory where the ﬁle is, then read.csv(), with just the ﬁle name, to open the CSV ﬁle. The result should be exactly the same as for the previous question.
+
+```{r}
+setwd("C:/Users/u04269977/Dropbox/Analytics/Statistics.com_Data Science R/R Basics_1/R Basic_1")
+```
+
+```{r}
+read.csv("weather2.b", sep = ,)
+```
+
+## Question 4. Write an R expression to open the ﬁrst ﬁle, "data20130101.csv".
+
+```{r}
+read.csv("data20130101.csv", row.names = "time")
+
+```
+
+## Question 5. Write R code to calculate the maximum and minimum values in the ﬁrst CSV ﬁle and assign the results to symbols minValue and maxValue.
+
+## "time" must be transformed to a row header by specifying the row.names.
+
+```{r}
+Value <- read.csv("data20130101.csv", row.names = "time")
+```
+
+
+```{r}
+max(Value)
+```
+
+```{r}
+min(Value)
+```
+
+## Question 6. The largest value in the ﬁle is a barometer pressure in hectopascals. 1 hectopascal is equivalent to 0.0145037738 psi (pounds per square inch). Write R code to convert the maximum value in the ﬁle to psi.
+
+```{r}
+max(Value)*0.0145037738
+```
+
+## Question 7. Write R code to calculate the maximum value across all 9 ﬁles.
+
+## duplicate script for all csv files after changing the label (data1, date2, etc.).
+
+```{r}
+data1 <- read.csv("data20130101.csv", row.names = "time")
+data2 <- read.csv("data20130102.csv", row.names = "time")
+data3 <- read.csv("data20130103.csv", row.names = "time")
+data4 <- read.csv("data20130104.csv", row.names = "time")
+data5 <- read.csv("data20130105.csv", row.names = "time")
+data6 <- read.csv("data20130106.csv", row.names = "time")
+data7 <- read.csv("data20130107.csv", row.names = "time")
+data8 <- read.csv("data20130108.csv", row.names = "time")
+data9 <- read.csv("data20130109.csv", row.names = "time")
 
 ```
 
 ```{r}
-maxValue <- read.csv("data20130101.csv")
+max(data1, data2, data3, data4,
+data5, data6, data7, data8, data9)
 ```
 
-```{r}
-library(psych)
-```
 
-```{r}
-summary(maxValue)
-```
-
-```{r}
-max(maxValue)
-```
